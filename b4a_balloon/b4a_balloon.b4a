@@ -1,0 +1,108 @@
+﻿Build1=Default,b4a.example
+File1=Main.bal
+FileGroup1=Default Group
+Group=Default Group
+Library1=core
+Library2=xui
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="31"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=1
+NumberOfLibraries=2
+NumberOfModules=1
+Version=12.2
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Balloon lift calculator by 9A4AM
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	' These global variables will be declared once when the application starts.
+	' These variables can be accessed from all modules.
+End Sub
+
+Sub Globals
+	' These global variables will be redeclared each time the activity is created.
+	' These variables can only be accessed from this module.
+	Private lblMasaAdaptera As Label
+	Private txtMasaAdaptera As EditText
+	Private lblMasaKonopca As Label
+	Private txtMasaKonopca As EditText
+	Private lblMasaSonde As Label
+	Private txtMasaSonde As EditText
+	Private lblZeljeniUzgon As Label
+	Private txtZeljeniUzgon As EditText
+	Private btnIzracunaj As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.LoadLayout("Main")
+    
+	lblMasaAdaptera.Initialize("")
+	lblMasaAdaptera.Text = "Masa adaptera (g):"
+	Activity.AddView(lblMasaAdaptera, 10dip, 10dip, 200dip, 50dip)
+    
+	txtMasaAdaptera.Initialize("")
+	txtMasaAdaptera.InputType = txtMasaAdaptera.INPUT_TYPE_NUMBERS
+	Activity.AddView(txtMasaAdaptera, 210dip, 10dip, 200dip, 50dip)
+    
+	lblMasaKonopca.Initialize("")
+	lblMasaKonopca.Text = "Masa konopca (g):"
+	Activity.AddView(lblMasaKonopca, 10dip, 70dip, 200dip, 50dip)
+    
+	txtMasaKonopca.Initialize("")
+	txtMasaKonopca.InputType = txtMasaKonopca.INPUT_TYPE_NUMBERS
+	Activity.AddView(txtMasaKonopca, 210dip, 70dip, 200dip, 50dip)
+    
+	lblMasaSonde.Initialize("")
+	lblMasaSonde.Text = "Masa sonde (g):"
+	Activity.AddView(lblMasaSonde, 10dip, 130dip, 200dip, 50dip)
+    
+	txtMasaSonde.Initialize("")
+	txtMasaSonde.InputType = txtMasaSonde.INPUT_TYPE_NUMBERS
+	Activity.AddView(txtMasaSonde, 210dip, 130dip, 200dip, 50dip)
+    
+	lblZeljeniUzgon.Initialize("")
+	lblZeljeniUzgon.Text = "Željeni uzgon (g):"
+	Activity.AddView(lblZeljeniUzgon, 10dip, 190dip, 200dip, 50dip)
+    
+	txtZeljeniUzgon.Initialize("")
+	txtZeljeniUzgon.InputType = txtZeljeniUzgon.INPUT_TYPE_NUMBERS
+	Activity.AddView(txtZeljeniUzgon, 210dip, 190dip, 200dip, 50dip)
+    
+	btnIzracunaj.Initialize("btnIzracunaj")
+	btnIzracunaj.Text = "Izračunaj uzgon"
+	Activity.AddView(btnIzracunaj, 10dip, 250dip, 400dip, 50dip)
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub btnIzracunaj_Click
+	Try
+		Dim masa_adaptera As Float = txtMasaAdaptera.Text
+		Dim masa_konopca As Float = txtMasaKonopca.Text
+		Dim masa_sonde As Float = txtMasaSonde.Text
+		Dim zeljeni_uzgon As Float = txtZeljeniUzgon.Text
+        
+		Dim uzgon_na_vagi As Float = (masa_sonde + masa_konopca + zeljeni_uzgon) - masa_adaptera
+        
+		Msgbox("Uzgon na vagi: " & uzgon_na_vagi & " grama", "Rezultat")
+	Catch
+		Msgbox("Molimo unesite ispravne numeričke vrednosti", "Greška")
+	End Try
+End Sub
