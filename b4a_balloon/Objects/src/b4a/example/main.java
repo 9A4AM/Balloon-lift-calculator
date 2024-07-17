@@ -345,6 +345,7 @@ public anywheresoftware.b4a.objects.EditTextWrapper _txtmasasonde = null;
 public anywheresoftware.b4a.objects.LabelWrapper _lblzeljeniuzgon = null;
 public anywheresoftware.b4a.objects.EditTextWrapper _txtzeljeniuzgon = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _btnizracunaj = null;
+public b4a.example.doubletaptoclose _d = null;
 public b4a.example.starter _starter = null;
 
 public static boolean isAnyActivityVisible() {
@@ -352,74 +353,90 @@ public static boolean isAnyActivityVisible() {
 vis = vis | (main.mostCurrent != null);
 return vis;}
 public static String  _activity_create(boolean _firsttime) throws Exception{
- //BA.debugLineNum = 34;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 35;BA.debugLine="Activity.LoadLayout(\"Main\")";
+ //BA.debugLineNum = 35;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+ //BA.debugLineNum = 36;BA.debugLine="Activity.LoadLayout(\"Main\")";
 mostCurrent._activity.LoadLayout("Main",mostCurrent.activityBA);
- //BA.debugLineNum = 37;BA.debugLine="lblMasaAdaptera.Initialize(\"\")";
+ //BA.debugLineNum = 37;BA.debugLine="D.Initialize (\"Tap BACK again to exit\",Me,\"Before";
+mostCurrent._d._initialize /*String*/ (processBA,"Tap BACK again to exit",main.getObject(),"BeforeClose",(int) (2),(int) (2000));
+ //BA.debugLineNum = 39;BA.debugLine="lblMasaAdaptera.Initialize(\"\")";
 mostCurrent._lblmasaadaptera.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 38;BA.debugLine="lblMasaAdaptera.Text = \"Masa adaptera (g):\"";
-mostCurrent._lblmasaadaptera.setText(BA.ObjectToCharSequence("Masa adaptera (g):"));
- //BA.debugLineNum = 39;BA.debugLine="Activity.AddView(lblMasaAdaptera, 10dip, 10dip, 2";
+ //BA.debugLineNum = 40;BA.debugLine="lblMasaAdaptera.Text = \"Weight adapter (g):\"";
+mostCurrent._lblmasaadaptera.setText(BA.ObjectToCharSequence("Weight adapter (g):"));
+ //BA.debugLineNum = 41;BA.debugLine="Activity.AddView(lblMasaAdaptera, 10dip, 10dip, 2";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._lblmasaadaptera.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 41;BA.debugLine="txtMasaAdaptera.Initialize(\"\")";
+ //BA.debugLineNum = 43;BA.debugLine="txtMasaAdaptera.Initialize(\"\")";
 mostCurrent._txtmasaadaptera.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 42;BA.debugLine="txtMasaAdaptera.InputType = txtMasaAdaptera.INPUT";
+ //BA.debugLineNum = 44;BA.debugLine="txtMasaAdaptera.InputType = txtMasaAdaptera.INPUT";
 mostCurrent._txtmasaadaptera.setInputType(mostCurrent._txtmasaadaptera.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 43;BA.debugLine="Activity.AddView(txtMasaAdaptera, 210dip, 10dip,";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasaadaptera.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 45;BA.debugLine="lblMasaKonopca.Initialize(\"\")";
+ //BA.debugLineNum = 45;BA.debugLine="Activity.AddView(txtMasaAdaptera, 210dip, 10dip,";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasaadaptera.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (100)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
+ //BA.debugLineNum = 47;BA.debugLine="lblMasaKonopca.Initialize(\"\")";
 mostCurrent._lblmasakonopca.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 46;BA.debugLine="lblMasaKonopca.Text = \"Masa konopca (g):\"";
-mostCurrent._lblmasakonopca.setText(BA.ObjectToCharSequence("Masa konopca (g):"));
- //BA.debugLineNum = 47;BA.debugLine="Activity.AddView(lblMasaKonopca, 10dip, 70dip, 20";
+ //BA.debugLineNum = 48;BA.debugLine="lblMasaKonopca.Text = \"Weight rope (g):\"";
+mostCurrent._lblmasakonopca.setText(BA.ObjectToCharSequence("Weight rope (g):"));
+ //BA.debugLineNum = 49;BA.debugLine="Activity.AddView(lblMasaKonopca, 10dip, 70dip, 20";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._lblmasakonopca.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (70)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 49;BA.debugLine="txtMasaKonopca.Initialize(\"\")";
+ //BA.debugLineNum = 51;BA.debugLine="txtMasaKonopca.Initialize(\"\")";
 mostCurrent._txtmasakonopca.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 50;BA.debugLine="txtMasaKonopca.InputType = txtMasaKonopca.INPUT_T";
+ //BA.debugLineNum = 52;BA.debugLine="txtMasaKonopca.InputType = txtMasaKonopca.INPUT_T";
 mostCurrent._txtmasakonopca.setInputType(mostCurrent._txtmasakonopca.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 51;BA.debugLine="Activity.AddView(txtMasaKonopca, 210dip, 70dip, 2";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasakonopca.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (70)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 53;BA.debugLine="lblMasaSonde.Initialize(\"\")";
+ //BA.debugLineNum = 53;BA.debugLine="Activity.AddView(txtMasaKonopca, 210dip, 70dip, 1";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasakonopca.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (70)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (100)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
+ //BA.debugLineNum = 55;BA.debugLine="lblMasaSonde.Initialize(\"\")";
 mostCurrent._lblmasasonde.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 54;BA.debugLine="lblMasaSonde.Text = \"Masa sonde (g):\"";
-mostCurrent._lblmasasonde.setText(BA.ObjectToCharSequence("Masa sonde (g):"));
- //BA.debugLineNum = 55;BA.debugLine="Activity.AddView(lblMasaSonde, 10dip, 130dip, 200";
+ //BA.debugLineNum = 56;BA.debugLine="lblMasaSonde.Text = \"Weight sonde (g):\"";
+mostCurrent._lblmasasonde.setText(BA.ObjectToCharSequence("Weight sonde (g):"));
+ //BA.debugLineNum = 57;BA.debugLine="Activity.AddView(lblMasaSonde, 10dip, 130dip, 200";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._lblmasasonde.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (130)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 57;BA.debugLine="txtMasaSonde.Initialize(\"\")";
+ //BA.debugLineNum = 59;BA.debugLine="txtMasaSonde.Initialize(\"\")";
 mostCurrent._txtmasasonde.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 58;BA.debugLine="txtMasaSonde.InputType = txtMasaSonde.INPUT_TYPE_";
+ //BA.debugLineNum = 60;BA.debugLine="txtMasaSonde.InputType = txtMasaSonde.INPUT_TYPE_";
 mostCurrent._txtmasasonde.setInputType(mostCurrent._txtmasasonde.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 59;BA.debugLine="Activity.AddView(txtMasaSonde, 210dip, 130dip, 20";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasasonde.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (130)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 61;BA.debugLine="lblZeljeniUzgon.Initialize(\"\")";
+ //BA.debugLineNum = 61;BA.debugLine="Activity.AddView(txtMasaSonde, 210dip, 130dip, 10";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtmasasonde.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (130)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (100)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
+ //BA.debugLineNum = 63;BA.debugLine="lblZeljeniUzgon.Initialize(\"\")";
 mostCurrent._lblzeljeniuzgon.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 62;BA.debugLine="lblZeljeniUzgon.Text = \"Željeni uzgon (g):\"";
-mostCurrent._lblzeljeniuzgon.setText(BA.ObjectToCharSequence("Željeni uzgon (g):"));
- //BA.debugLineNum = 63;BA.debugLine="Activity.AddView(lblZeljeniUzgon, 10dip, 190dip,";
+ //BA.debugLineNum = 64;BA.debugLine="lblZeljeniUzgon.Text = \"Target lift (g):\"";
+mostCurrent._lblzeljeniuzgon.setText(BA.ObjectToCharSequence("Target lift (g):"));
+ //BA.debugLineNum = 65;BA.debugLine="Activity.AddView(lblZeljeniUzgon, 10dip, 190dip,";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._lblzeljeniuzgon.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (190)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 65;BA.debugLine="txtZeljeniUzgon.Initialize(\"\")";
+ //BA.debugLineNum = 67;BA.debugLine="txtZeljeniUzgon.Initialize(\"\")";
 mostCurrent._txtzeljeniuzgon.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 66;BA.debugLine="txtZeljeniUzgon.InputType = txtZeljeniUzgon.INPUT";
+ //BA.debugLineNum = 68;BA.debugLine="txtZeljeniUzgon.InputType = txtZeljeniUzgon.INPUT";
 mostCurrent._txtzeljeniuzgon.setInputType(mostCurrent._txtzeljeniuzgon.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 67;BA.debugLine="Activity.AddView(txtZeljeniUzgon, 210dip, 190dip,";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtzeljeniuzgon.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (190)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 69;BA.debugLine="btnIzracunaj.Initialize(\"btnIzracunaj\")";
+ //BA.debugLineNum = 69;BA.debugLine="Activity.AddView(txtZeljeniUzgon, 210dip, 190dip,";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._txtzeljeniuzgon.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (210)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (190)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (100)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
+ //BA.debugLineNum = 71;BA.debugLine="btnIzracunaj.Initialize(\"btnIzracunaj\")";
 mostCurrent._btnizracunaj.Initialize(mostCurrent.activityBA,"btnIzracunaj");
- //BA.debugLineNum = 70;BA.debugLine="btnIzracunaj.Text = \"Izračunaj uzgon\"";
-mostCurrent._btnizracunaj.setText(BA.ObjectToCharSequence("Izračunaj uzgon"));
- //BA.debugLineNum = 71;BA.debugLine="Activity.AddView(btnIzracunaj, 10dip, 250dip, 400";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._btnizracunaj.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (250)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (400)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50)));
- //BA.debugLineNum = 72;BA.debugLine="End Sub";
+ //BA.debugLineNum = 72;BA.debugLine="btnIzracunaj.Color = Colors.Yellow";
+mostCurrent._btnizracunaj.setColor(anywheresoftware.b4a.keywords.Common.Colors.Yellow);
+ //BA.debugLineNum = 73;BA.debugLine="btnIzracunaj.Text = \"CALCULATE LIFT WITH ADAPTER\"";
+mostCurrent._btnizracunaj.setText(BA.ObjectToCharSequence("CALCULATE LIFT WITH ADAPTER"));
+ //BA.debugLineNum = 74;BA.debugLine="Activity.AddView(btnIzracunaj, 10dip, 250dip, 300";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._btnizracunaj.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (250)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (300)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (70)));
+ //BA.debugLineNum = 76;BA.debugLine="End Sub";
 return "";
 }
+public static boolean  _activity_keypress(int _keycode) throws Exception{
+ //BA.debugLineNum = 101;BA.debugLine="Sub Activity_KeyPress (KeyCode As Int) As Boolean";
+ //BA.debugLineNum = 102;BA.debugLine="If KeyCode = KeyCodes.KEYCODE_BACK Then";
+if (_keycode==anywheresoftware.b4a.keywords.Common.KeyCodes.KEYCODE_BACK) { 
+ //BA.debugLineNum = 103;BA.debugLine="D.TapToClose";
+mostCurrent._d._taptoclose /*String*/ ();
+ //BA.debugLineNum = 104;BA.debugLine="Return True";
+if (true) return anywheresoftware.b4a.keywords.Common.True;
+ };
+ //BA.debugLineNum = 106;BA.debugLine="End Sub";
+return false;
+}
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 78;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 80;BA.debugLine="End Sub";
+ //BA.debugLineNum = 82;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 84;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 74;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 76;BA.debugLine="End Sub";
+ //BA.debugLineNum = 78;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 80;BA.debugLine="End Sub";
 return "";
 }
 public static String  _btnizracunaj_click() throws Exception{
@@ -428,26 +445,26 @@ float _masa_konopca = 0f;
 float _masa_sonde = 0f;
 float _zeljeni_uzgon = 0f;
 float _uzgon_na_vagi = 0f;
- //BA.debugLineNum = 82;BA.debugLine="Sub btnIzracunaj_Click";
- //BA.debugLineNum = 83;BA.debugLine="Try";
-try { //BA.debugLineNum = 84;BA.debugLine="Dim masa_adaptera As Float = txtMasaAdaptera.Tex";
+ //BA.debugLineNum = 86;BA.debugLine="Sub btnIzracunaj_Click";
+ //BA.debugLineNum = 87;BA.debugLine="Try";
+try { //BA.debugLineNum = 88;BA.debugLine="Dim masa_adaptera As Float = txtMasaAdaptera.Tex";
 _masa_adaptera = (float)(Double.parseDouble(mostCurrent._txtmasaadaptera.getText()));
- //BA.debugLineNum = 85;BA.debugLine="Dim masa_konopca As Float = txtMasaKonopca.Text";
+ //BA.debugLineNum = 89;BA.debugLine="Dim masa_konopca As Float = txtMasaKonopca.Text";
 _masa_konopca = (float)(Double.parseDouble(mostCurrent._txtmasakonopca.getText()));
- //BA.debugLineNum = 86;BA.debugLine="Dim masa_sonde As Float = txtMasaSonde.Text";
+ //BA.debugLineNum = 90;BA.debugLine="Dim masa_sonde As Float = txtMasaSonde.Text";
 _masa_sonde = (float)(Double.parseDouble(mostCurrent._txtmasasonde.getText()));
- //BA.debugLineNum = 87;BA.debugLine="Dim zeljeni_uzgon As Float = txtZeljeniUzgon.Tex";
+ //BA.debugLineNum = 91;BA.debugLine="Dim zeljeni_uzgon As Float = txtZeljeniUzgon.Tex";
 _zeljeni_uzgon = (float)(Double.parseDouble(mostCurrent._txtzeljeniuzgon.getText()));
- //BA.debugLineNum = 89;BA.debugLine="Dim uzgon_na_vagi As Float = (masa_sonde + masa_";
+ //BA.debugLineNum = 93;BA.debugLine="Dim uzgon_na_vagi As Float = (masa_sonde + masa_";
 _uzgon_na_vagi = (float) ((_masa_sonde+_masa_konopca+_zeljeni_uzgon)-_masa_adaptera);
- //BA.debugLineNum = 91;BA.debugLine="Msgbox(\"Uzgon na vagi: \" & uzgon_na_vagi & \" gra";
-anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Uzgon na vagi: "+BA.NumberToString(_uzgon_na_vagi)+" grama"),BA.ObjectToCharSequence("Rezultat"),mostCurrent.activityBA);
+ //BA.debugLineNum = 95;BA.debugLine="Msgbox(\"Target lift on scale: \" & uzgon_na_vagi";
+anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Target lift on scale: "+BA.NumberToString(_uzgon_na_vagi)+" gram"),BA.ObjectToCharSequence("Result"),mostCurrent.activityBA);
  } 
        catch (Exception e9) {
-			processBA.setLastException(e9); //BA.debugLineNum = 93;BA.debugLine="Msgbox(\"Molimo unesite ispravne numeričke vredno";
-anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Molimo unesite ispravne numeričke vrednosti"),BA.ObjectToCharSequence("Greška"),mostCurrent.activityBA);
+			processBA.setLastException(e9); //BA.debugLineNum = 97;BA.debugLine="Msgbox(\"Please enter nummeric value\", \"Error\")";
+anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Please enter nummeric value"),BA.ObjectToCharSequence("Error"),mostCurrent.activityBA);
  };
- //BA.debugLineNum = 95;BA.debugLine="End Sub";
+ //BA.debugLineNum = 99;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -470,7 +487,9 @@ mostCurrent._lblzeljeniuzgon = new anywheresoftware.b4a.objects.LabelWrapper();
 mostCurrent._txtzeljeniuzgon = new anywheresoftware.b4a.objects.EditTextWrapper();
  //BA.debugLineNum = 31;BA.debugLine="Private btnIzracunaj As Button";
 mostCurrent._btnizracunaj = new anywheresoftware.b4a.objects.ButtonWrapper();
- //BA.debugLineNum = 32;BA.debugLine="End Sub";
+ //BA.debugLineNum = 32;BA.debugLine="Dim D As DoubleTaptoClose";
+mostCurrent._d = new b4a.example.doubletaptoclose();
+ //BA.debugLineNum = 33;BA.debugLine="End Sub";
 return "";
 }
 
